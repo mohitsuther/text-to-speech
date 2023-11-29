@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            background-color: rgb(146, 65, 221);
+        }
+        h1{
+            text-align: center;
+            margin: 20px;
+        }
+        textarea{
+            justify-content: center;
+            margin-inline: auto;
+            width: 70%;
+            font-size: 30px;
+            height: 60%;
+            border-radius: 10px;
+            background-color: rgb(214, 171, 255);
+            color: rgb(0, 0, 0);
+            
+        }
+        button{
+            border-radius: 10px;
+            margin-inline: auto;
+            height: 35px;
+            width: 100px;
+            margin: 30px 0px 0px 15%;
+            background-color: rgb(197, 151, 240);
+        }
+        button:hover{
+            background-color: rgb(34, 8, 58);
+            color: aliceblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>text convert to speech</h1>
+        <textarea name="" class="textbox" placeholder="write a anything here...." cols="30" rows="10"></textarea>
+        <div class="div">
+            <button class="speechbtn">play speech</button>
+        </div>
+    </div>
+    <script>
+        let textbox = document.querySelector(".textbox");
+        let speechbutton = document.querySelector(".speechbtn");
+        speechbutton.addEventListener("click",()=>{
+            let speech = new SpeechSynthesisUtterance();
+            speech.text = textbox.value;
+            window.speechSynthesis.speak(speech);
+        })
+    </script>
+</body>
+</html>
